@@ -2,7 +2,7 @@ Official implementation of paper  "Domain Progressive Low-dose CT Imaging using 
 
 
 # IPDM usage guidance
-First, please organize your datasets following the directory structure of the example dataset.
+First, please organize your datasets following the directory structure of the example dataset. <\b>Note that low-dose data is for testing purposes, IPDM training only requires NDCT data and is an unsupervised denoising method.<\b>
 ```
 E:
 ├─0.25dose
