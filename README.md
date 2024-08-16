@@ -40,7 +40,15 @@ E:
 ### Test Samples
 1. Download the example dataset from <https://drive.google.com/file/d/11kI1Mfmqashfc4nHDsZJqbTMGaLJaJRc/view?usp=sharing> and store it in `./Dataset/test sample`. Download the pretrained model parameters from <https://drive.google.com/drive/folders/1-40NWVM3ng8Ty-auqO5YE_Rj3Xv1jZlA?usp=sharing> and store it in `./Pretrained Params`. 
 2. Open `test_sample.ipynb` and run the code blocks in the jupyter notebook sequentially. To change the sample, simply modify the `idx=15` to other index
-in the second code block. Example sample denoising result is as follows, `img iter 1` is the final denoised result:
+in the second code block. Note that the iterative reconstruction algorithm ART needs to be compiled with VS2019 before it can be used, while FBP is written in python and can be used without compilation. To adjust the parameter configuration, you simply add or change the parameters in the following code snippet. The default parameters are recorded in `Config/Mayo-Config/test_progressive_option.json`.
+```python
+model.update_opt(dict(convertor="FBP",save_it_state_img=False,save_it_state_proj=False,ultra_img_denoise=True))
+```
+For example, the default iteration parameter of the projection domain `t_start_proj=[15,15,15]` represents three iterations of denoising, each with a partial timesteps of 15. If you want to change the number of iterations denoising the projection domain or partial timesteps, you can simply explicitly write a parameter `t_start_proj`:
+```python
+model.update_opt(dict(convertor="FBP",save_it_state_img=False,save_it_state_proj=False,ultra_img_denoise=True，t_start_proj=[15,12,10,10]))
+```
+Example sample denoising result is as follows, `img iter 1` is the final denoised result:
 ![](output.png)
 
 
