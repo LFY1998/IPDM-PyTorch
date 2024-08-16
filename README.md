@@ -48,7 +48,7 @@ E:
 ### Test Samples
 1. Download the example dataset from <https://drive.google.com/file/d/11kI1Mfmqashfc4nHDsZJqbTMGaLJaJRc/view?usp=sharing> and store it in `Dataset/test sample`. Download the pretrained model parameters from <https://drive.google.com/drive/folders/1-40NWVM3ng8Ty-auqO5YE_Rj3Xv1jZlA?usp=sharing> and store it in `\Pretrained Params`. 
 2. Open `test_sample.ipynb` and run the code blocks in the jupyter notebook sequentially. To change the sample, simply modify the `idx=15` to other index
-in the second code block.
+in the second code block. Example sample denoising result is as follows:
 ![](output.png)
 
 
