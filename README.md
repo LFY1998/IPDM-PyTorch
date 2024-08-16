@@ -2,8 +2,7 @@
 Official implementation of paper  "Domain Progressive Low-dose CT Imaging using Iterative Partial Diffusion Model"
 
 # IPDM usage guidance
-First, please organize your datasets following the directory structure of the example dataset 
-[URL].
+First, please organize your datasets following the directory structure of the example dataset.
 ```
 E:
 ├─0.25dose
@@ -47,8 +46,8 @@ E:
 ```
 ### Runtime Environment: pytorch 1.7.1+cu110, libtorch 1.7.1+cu110, i9-13900K+RTX4090
 ### Test Samples
-1. Download the example dataset from [URL] and store it in `Dataset/test sample`. Open `test_sample.ipynb`.
-2. Run the code blocks in the jupyter notebook sequentially. To change the sample, simply modify the `idx=15`
+1. Download the example dataset from <> and store it in `Dataset/test sample`. Download the pretrained model parameters from <https://drive.google.com/drive/folders/1-40NWVM3ng8Ty-auqO5YE_Rj3Xv1jZlA?usp=sharing> and store it in `\Pretrained Params`. 
+2. Open `test_sample.ipynb` and run the code blocks in the jupyter notebook sequentially. To change the sample, simply modify the `idx=15`
 in the second code block.
 
 
