@@ -46,7 +46,7 @@ E:
 ```
 ### Runtime Environment: pytorch 1.7.1+cu110, libtorch 1.7.1+cu110, i9-13900K+RTX4090
 ### Test Samples
-1. Download the example dataset from <> and store it in `Dataset/test sample`. Download the pretrained model parameters from <https://drive.google.com/drive/folders/1-40NWVM3ng8Ty-auqO5YE_Rj3Xv1jZlA?usp=sharing> and store it in `\Pretrained Params`. 
+1. Download the example dataset from <https://drive.google.com/file/d/11kI1Mfmqashfc4nHDsZJqbTMGaLJaJRc/view?usp=drive_link> and store it in `Dataset/test sample`. Download the pretrained model parameters from <https://drive.google.com/drive/folders/1-40NWVM3ng8Ty-auqO5YE_Rj3Xv1jZlA?usp=sharing> and store it in `\Pretrained Params`. 
 2. Open `test_sample.ipynb` and run the code blocks in the jupyter notebook sequentially. To change the sample, simply modify the `idx=15` to other index
 in the second code block.
 
