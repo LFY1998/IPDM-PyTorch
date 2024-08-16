@@ -88,7 +88,7 @@ It is recommended to use the default values. The meaning of each parameter is ex
 ```cmd
 python main.py --load_option_path Config/Mayo-Config/train_img_option.json
 ```
-6. To track training progress, find the log path and use TensorBoard by running in cmd:
+6. To track training progress, find the log path and use TensorBoard by running in cmd, such as:
 ```cmd
 tensorboard --logdir Utils/ModelTrainLog/IPDM_train_Mayo_img/2024-08-15T16-54-23/trainSummary
 ```
