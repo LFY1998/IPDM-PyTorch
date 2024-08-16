@@ -95,3 +95,34 @@ python main.py --load_option_path Config/Mayo-Config/train_proj_option.json
 
 ### Testing on your own dataset
 1. Copy `Config/Mayo-Config/test_progressive_option.json` and modify the test dataset paths to your own test data paths:
+```json
+    "test_dataset_path_FD_img": "Dataset/test sample/Mayo/ND/image domain",
+    "test_dataset_path_LD_img": "Dataset/test sample/Mayo/0.25dose/image domain",
+    "test_dataset_path_FD_proj": "Dataset/test sample/Mayo/ND/projection domain",
+    "test_dataset_path_LD_proj": "Dataset/test sample/Mayo/0.25dose/projection domain",
+```
+2.Modify `load_img_model_path`, `load_proj_model_path` to the saved model parameters from your training, such as `Utils/ModelTrainLog/IPDM_train_Mayo_img/2024-08-15T16-54-23/save_models`. Modify `resume_epochs_proj`, `resume_epochs_img` to the checkpoint number you want to use.
+3.Adjust the testing parameters in `Config/Mayo-Config/test_progressive_option.json`. It is recommended to use the default values. The smaller the `constant_guidance_img`, the more significant the denoising effect, but more details will be lost.
+4.Open cmd, navigate to the directory containing `main.py`, and run:
+```cmd
+python main.py --load_option_path Config/Mayo-Config/test_progressive_option.json
+```
+
+### Low-Dose Projection Simulation
+First, set up the dynamic library runtime environment by downloading `libtorch1.7.1+cu110`, `pybind11`, and compile `Recon/TASART2DNSL0-Cpp`, or modify the following content to your own path:
+`os.environ['path'] += ';E:/Liaofeiyang/libtorch-win-shared-with-deps-1.7.1+cu110/libtorch/lib;D:/Anaconda3/envs/diffusion;D:/Anaconda3/envs/diffusion/Lib/site-packages/torch/lib'`
+1. Use the `proj_torch` function in the Tangential Projection Code `Recon/TASART2DNSL0.pyi` to obtain projection images.
+2. Use `Utils/Low_dose_CT_simulate.py` to add noise to the clean projection images. The code for adding noise is as follows:
+```python
+import numpy as np
+def add_noise(data: np.array, factor=0.25):
+    Ne = 5.8
+    N0 = 1.4 * 1e5
+    n = np.random.randn(data.shape[0], data.shape[1])
+    noise_data = data + np.sqrt(
+        (1 - factor) * np.exp(data) * (1 + ((1 + factor) * Ne * np.exp(data)) / (factor * N0)) / (factor * N0)) * n
+    return noise_data
+```
+3. Use the `recon_torch` function in the Iterative Reconstruction Code `Recon/TASART2DNSL0.pyi` to reconstruct noisy projections and obtain low-dose images.
+
+
