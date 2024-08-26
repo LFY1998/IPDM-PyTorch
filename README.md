@@ -134,6 +134,6 @@ def add_noise(data: np.array, factor=0.25):
 3. Use the `recon_torch` function in the Iterative Reconstruction Code `Recon/TASART2DNSL0.pyi` to reconstruct noisy projections and obtain low-dose images.
 
 ### Training Details of Benchmarks
-![](training details.png)
+![](training%20details.png)
 
 
