@@ -1,5 +1,15 @@
 Official implementation of paper  "Domain Progressive Low-dose CT Imaging using Iterative Partial Diffusion Model"
-
+If the project helps you, please cite in the following bibtex:
+@ARTICLE{10746391,
+  author={Liao, Feiyang and Tang, Yufei and Du, Qiang and Wang, Jiping and Li, Ming and Zheng, Jian},
+  journal={IEEE Transactions on Medical Imaging}, 
+  title={Domain Progressive Low-dose CT Imaging using Iterative Partial Diffusion Model}, 
+  year={2024},
+  volume={},
+  number={},
+  pages={1-1},
+  keywords={Noise reduction;Computed tomography;Noise;Iterative methods;Image reconstruction;Training;Diffusion models;Biomedical imaging;Standards;Degradation;LDCT;image denoising;deep learning;iterative partial diffusion model},
+  doi={10.1109/TMI.2024.3492260}}
 
 # IPDM usage guidance
 First, please organize your datasets following the directory structure of the example dataset. **Note that low-dose data is for testing purposes, IPDM training only requires NDCT data and is an unsupervised denoising method.**
